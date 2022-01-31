@@ -20,8 +20,7 @@ external_stylesheets = [
 ]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
-data = pd.read_csv("spacebot_public_marketplace.csv")
+data = pd.read_csv("https://github.com/rayliuca/SpaceData/raw/main/spacebot_public_marketplace.csv")
 data["goods"] = data["location"] + "-" + data["symbol"]
 data['timestamp'] = pd.to_datetime(data['timestamp'])
 data['time'] = data['timestamp'].values.view('<i8') / 10 ** 9
@@ -277,4 +276,7 @@ def update_plots_by_filter(selected_location_rows, selected_symbol_rows):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False, port=80, threaded=True)
+    from waitress import serve
+    # app.run_server(debug=False, host='0.0.0.0', port=8080, threaded=True)
+    serve(app.server, host="0.0.0.0", port=8080)
+
