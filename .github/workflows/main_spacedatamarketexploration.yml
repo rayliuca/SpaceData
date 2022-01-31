@@ -28,7 +28,9 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          conda install --yes --file conda_packages.txt
+          pip install -r pip_packages.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
