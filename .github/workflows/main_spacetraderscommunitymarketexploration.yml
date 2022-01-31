@@ -24,11 +24,8 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
-          python -m venv venv
-          source venv/bin/activate
-      
-      - name: Install dependencies
-        run: conda install --yes --file package-list.txt
+          conda create --name venv --file package-list.txt
+          conda activate venv
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
