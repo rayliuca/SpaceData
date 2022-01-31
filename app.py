@@ -277,4 +277,4 @@ def update_plots_by_filter(selected_location_rows, selected_symbol_rows):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False, port=80, threaded=True)
