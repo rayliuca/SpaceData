@@ -25,7 +25,6 @@ jobs:
       - name: Create virtual environment
         run: |
           conda env create -f SpaceData.yml
-          conda activate SpaceData
           
       - name: Init virtual environment
         run: |
