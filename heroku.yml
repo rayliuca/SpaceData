@@ -1,3 +1,5 @@
-run:
+build:
   docker:
     web: Heroku.Dockerfile
+run:
+  web: python app.py -p $PORT
