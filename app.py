@@ -20,7 +20,8 @@ external_stylesheets = [
 ]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-data = pd.read_csv("https://github.com/rayliuca/SpaceData/raw/main/spacebot_public_marketplace.csv")
+# data = pd.read_csv("https://github.com/rayliuca/SpaceData/raw/main/spacebot_public_marketplace.csv")
+data = pd.read_csv("spacebot_public_marketplace.csv")
 data["goods"] = data["location"] + "-" + data["symbol"]
 data['timestamp'] = pd.to_datetime(data['timestamp'])
 data['time'] = data['timestamp'].values.view('<i8') / 10 ** 9
