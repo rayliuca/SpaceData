@@ -22,19 +22,16 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Create virtual environment
+      - name: Create and start virtual environment
         run: |
-          conda env create -f SpaceData.yml
+          python -m venv venv
+          source venv/bin/activate
+      
+      - name: Install dependencies
+        run: |
+          conda install --yes --file conda_packages.txt
+          pip install -r pip_packages.txt
           
-      - name: Init virtual environment
-        run: |
-          conda init bash
-          exec bash
-          
-      - name: Activate virtual environment
-        run: |
-          conda activate SpaceData
-        
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
