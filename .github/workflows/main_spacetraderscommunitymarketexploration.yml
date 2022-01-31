@@ -29,6 +29,7 @@ jobs:
       - name: Init virtual environment
         run: |
           conda init bash
+          exec bash
           
       - name: Activate virtual environment
         run: |
