@@ -1,0 +1,39 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="270" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="InconsistentLineSeparators" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyBroadExceptionInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="main.TRADER_USERNAME" />
+          <option value="main.TRADER_TOKEN" />
+          <option value="main.*" />
+          <option value="lib.connection_utilities.TRADER_USERNAME" />
+          <option value="lib.connection_utilities.TRADER_TOKEN" />
+          <option value="lib.connection_utilities.PGSQL_HOST" />
+          <option value="lib.connection_utilities.PGSQL_DB" />
+          <option value="lib.connection_utilities.PGSQL_USER" />
+          <option value="lib.connection_utilities.PGSQL_PASS" />
+          <option value="lib.connection_utilities.PGSQL_SSLMODE" />
+          <option value="lib.ship_utilities.TRADER_USERNAME" />
+          <option value="SpaceBot.main.TRADER_TOKEN" />
+          <option value="SpaceBot.main.PGSQL_HOST" />
+          <option value="SpaceBot.main.PGSQL_DB" />
+          <option value="SpaceBot.main.PGSQL_USER" />
+          <option value="SpaceBot.main.PGSQL_PASS" />
+          <option value="SpaceBot.main.PGSQL_SSLMODE" />
+          <option value="SpaceBot.main.TRADER_USERNAME" />
+          <option value="SpaceBot.lib.ship_utilities.TRADER_USERNAME" />
+          <option value="SpaceBot.lib.connection_utilities.TRADER_USERNAME" />
+          <option value="SpaceBot.lib.connection_utilities.TRADER_TOKEN" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
