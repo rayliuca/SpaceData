@@ -8,6 +8,9 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 
+from datetime import datetime
+import urllib
+
 # external CSS stylesheets
 external_stylesheets = [
     'https://codepen.io/chriddyp/pen/bWLwgP.css',
@@ -20,7 +23,26 @@ external_stylesheets = [
 ]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-# data = pd.read_csv("https://github.com/rayliuca/SpaceData/raw/main/spacebot_public_marketplace.csv")
+
+
+def get_csv_data(url="https://github.com/rayliuca/SpaceData/raw/main/spacebot_public_marketplace.csv", cache_time=3600):
+    if os.path.isfile("cache_time.txt"):
+        with open("cache_time.txt", "r") as f:
+            stored_cache_time = datetime.fromtimestamp(float(f.read()))
+    else:
+        stored_cache_time = datetime.fromtimestamp(0)
+
+    if (datetime.now() - stored_cache_time).total_seconds() > cache_time:
+        urllib.request.urlretrieve(url, "spacebot_public_marketplace.csv")
+
+        with open("cache_time.txt", "w") as file:
+            cache_time = str(datetime.timestamp(datetime.now()))
+            file.write(cache_time)
+
+
+get_csv_data()
+
+
 data = pd.read_csv("spacebot_public_marketplace.csv")
 data["goods"] = data["location"] + "-" + data["symbol"]
 data['timestamp'] = pd.to_datetime(data['timestamp'])
