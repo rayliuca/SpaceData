@@ -1,3 +1,4 @@
+import argparse
 import os
 import dash
 from dash import dcc
@@ -10,6 +11,7 @@ import pandas as pd
 
 from datetime import datetime
 import urllib
+
 
 # external CSS stylesheets
 external_stylesheets = [
@@ -300,6 +302,12 @@ def update_plots_by_filter(selected_location_rows, selected_symbol_rows):
 
 if __name__ == '__main__':
     from waitress import serve
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--port", dest="port", type=int, default=8080)
     # app.run_server(debug=False, host='0.0.0.0', port=8080, threaded=True)
-    serve(app.server, host="0.0.0.0", port=8080)
+
+    args = parser.parse_args()
+
+    serve(app.server, host="0.0.0.0", port=args.port)
 
