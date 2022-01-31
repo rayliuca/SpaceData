@@ -24,8 +24,8 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
-          conda create --name venv --file package-list.txt
-          conda activate venv
+          conda env create -f SpaceData.yml
+          conda activate SpaceData
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
