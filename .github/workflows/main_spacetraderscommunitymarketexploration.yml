@@ -22,9 +22,17 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Create and start virtual environment
+      - name: Create virtual environment
         run: |
           conda env create -f SpaceData.yml
+          conda activate SpaceData
+          
+      - name: Init virtual environment
+        run: |
+          conda init bash
+          
+      - name: Activate virtual environment
+        run: |
           conda activate SpaceData
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
